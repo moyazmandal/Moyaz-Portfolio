@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Moyaz Mandal | WordPress · Frontend · React Developer</title>
+<meta name="description" content="Get in touch with Moyaz Mandal for WordPress development, frontend projects, and React applications.">
+
+        <!-- fav-icon link -->
+         <link rel="icon" href="img/moyaz_logo.png" type="image/svg+xml">
+<!-- Bootstrap 5 -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
+<!-- Bootstrap Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css">
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --bg:            #0B1220;
+    --bg-raised:     #101A2E;
+    --bg-card:       #131F38;
+    --line:          #223154;
+    --text:          #E7ECF7;
+    --text-muted:    #93A1C2;
+    --cyan:          #4FD1C5;
+    --wp-blue:       #58A6E8;
+    --amber:         #F5B94D;
+    --green:         #34D399;
+    --font-display:  'Space Grotesk', sans-serif;
+    --font-body:     'Inter', sans-serif;
+    --font-mono:     'JetBrains Mono', monospace;
+  }
+
+  *{ scroll-behavior: smooth; }
+
+  body{
+    background-color: var(--bg);
+    background-image:
+      radial-gradient(circle at 15% 0%, rgba(79,209,197,0.08), transparent 40%),
+      radial-gradient(circle at 85% 15%, rgba(88,166,232,0.08), transparent 40%),
+      linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+    background-size: auto, auto, 44px 44px, 44px 44px;
+    color: var(--text);
+    font-family: var(--font-body);
+    line-height: 1.7;
+  }
+
+  h1,h2,h3,h4,.display-font{ font-family: var(--font-display); letter-spacing: -0.02em; }
+  a{ color: var(--cyan); text-decoration: none; }
+  ::selection{ background: var(--cyan); color: #06121b; }
+  a:focus-visible, button:focus-visible{ outline: 2px solid var(--cyan); outline-offset: 3px; }
+
+  .eyebrow{
+    font-family: var(--font-mono);
+    font-size: .78rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--cyan);
+  }
+  .eyebrow::before{ content:"// "; color: var(--text-muted); }
+
+  section{ position: relative; padding: 6.5rem 0; }
+  @media (max-width: 767.98px){ section{ padding: 4rem 0; } }
+  .section-title{ font-size: clamp(1.9rem, 3.2vw, 2.6rem); font-weight: 700; margin-bottom: .6rem; }
+  .section-sub{ color: var(--text-muted); max-width: 640px; }
+
+  /* ===== NAVBAR ===== */
+  .navbar{
+    background: rgba(11,18,32,0.75);
+    backdrop-filter: saturate(160%) blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  .navbar-brand{
+    font-family: var(--font-mono);
+    font-weight: 600;
+    color: var(--text) !important;
+    font-size: 1.05rem;
+  }
+  .navbar-brand .bracket{ color: var(--cyan); }
+  .nav-link{
+    color: var(--text-muted) !important;
+    font-family: var(--font-mono);
+    font-size: .9rem;
+    margin: 0 .35rem;
+    transition: color .2s ease;
+  }
+  .nav-link:hover, .nav-link.active{ color: var(--text) !important; }
+  .btn-nav-cta{
+    font-family: var(--font-mono);
+    font-size: .85rem;
+    border: 1px solid var(--cyan);
+    color: var(--cyan) !important;
+    border-radius: 6px;
+    padding: .4rem 1rem;
+  }
+  .btn-nav-cta:hover{ background: var(--cyan); color: #06121b !important; }
+
+  /* ===== PAGE HEADER ===== */
+  .page-header{
+    padding-top: 9.5rem;
+    padding-bottom: 4rem;
+    text-align: center;
+    position: relative;
+  }
+  .page-header::after{
+    content:"";
+    position: absolute;
+    bottom: 0; left: 50%;
+    transform: translateX(-50%);
+    width: 120px; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--line), transparent);
+  }
+  .breadcrumb-trail{
+    font-family: var(--font-mono);
+    font-size: .82rem;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+  }
+  .breadcrumb-trail a{ color: var(--text-muted); }
+  .breadcrumb-trail a:hover{ color: var(--cyan); }
+  .breadcrumb-trail .sep{ margin: 0 .5rem; color: var(--line); }
+  .breadcrumb-trail .current{ color: var(--cyan); }
+
+  .page-header h1{
+    font-size: clamp(2.4rem, 5vw, 3.6rem);
+    font-weight: 700;
+    margin: .6rem 0 1rem;
+    line-height: 1.15;
+  }
+  .page-header h1 .accent{
+    position: relative;
+    display: inline-block;
+  }
+  .page-header h1 .accent::after{
+    content:"";
+    position: absolute;
+    bottom: 2px; left: 0;
+    width: 100%; height: 8px;
+    background: rgba(79,209,197,.15);
+    border-radius: 4px;
+    z-index: -1;
+  }
+
+  .page-header > p{
+    color: var(--text-muted);
+    max-width: 620px;
+    margin: 0 auto;
+    font-size: .95rem;
+  }
+
+  /* ===== CONTACT INFO CARDS ===== */
+  .info-card{
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 1.2rem 1.3rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    transition: border-color .2s ease, transform .2s ease, box-shadow .2s ease;
+  }
+  .info-card:hover{
+    border-color: rgba(79,209,197,.25);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(0,0,0,.4);
+  }
+  .info-card-icon{
+    width: 44px; height: 44px;
+    border-radius: 10px;
+    border: 1px solid var(--line);
+    background: rgba(79,209,197,.06);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--cyan);
+    font-size: 1.1rem;
+    flex-shrink: 0;
+    transition: all .2s ease;
+  }
+  .info-card:hover .info-card-icon{
+    background: rgba(79,209,197,.12);
+    border-color: rgba(79,209,197,.3);
+  }
+  .info-card-label{
+    font-family: var(--font-mono);
+    font-size: .68rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    margin-bottom: .2rem;
+  }
+  .info-card-value{
+    font-size: .9rem;
+    color: var(--text);
+    font-weight: 500;
+  }
+  .info-card-value a{
+    color: var(--text);
+    transition: color .2s ease;
+  }
+  .info-card-value a:hover{ color: var(--cyan); }
+  .info-card-desc{
+    font-size: .78rem;
+    color: var(--text-muted);
+    margin-top: .15rem;
+  }
+
+  /* ===== CONTACT FORM ===== */
+  .contact-form-wrap{
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 2.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .contact-form-wrap::before{
+    content:"";
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--cyan), transparent);
+    opacity: .4;
+  }
+  .contact-form-wrap h3{
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: .25rem;
+  }
+  .contact-form-wrap > p{
+    font-size: .88rem;
+    color: var(--text-muted);
+    margin-bottom: 1.8rem;
+  }
+
+  .form-group{ margin-bottom: 1.15rem; }
+  .form-label{
+    font-family: var(--font-mono);
+    font-size: .72rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    margin-bottom: .4rem;
+    display: block;
+  }
+  .form-label .req{ color: var(--cyan); }
+
+  .form-input{
+    width: 100%;
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: .75rem 1rem;
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: .9rem;
+    transition: border-color .2s ease, box-shadow .2s ease;
+    outline: none;
+  }
+  .form-input::placeholder{
+    color: rgba(147,161,194,.35);
+  }
+  .form-input:focus{
+    border-color: var(--cyan);
+    box-shadow: 0 0 0 3px rgba(79,209,197,.1);
+  }
+  textarea.form-input{
+    resize: vertical;
+    min-height: 130px;
+  }
+
+  /* Select dropdown styling */
+  .form-select-custom{
+    width: 100%;
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: .75rem 1rem;
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: .9rem;
+    transition: border-color .2s ease, box-shadow .2s ease;
+    outline: none;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%2393A1C2' viewBox='0 0 16 16'%3E%3Cpath d='M8 11L3 6h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    cursor: pointer;
+  }
+  .form-select-custom:focus{
+    border-color: var(--cyan);
+    box-shadow: 0 0 0 3px rgba(79,209,197,.1);
+  }
+  .form-select-custom option{
+    background: var(--bg-card);
+    color: var(--text);
+  }
+
+  /* Submit button */
+  .btn-submit{
+    width: 100%;
+    background: var(--cyan);
+    border: none;
+    color: #06121b;
+    font-family: var(--font-mono);
+    font-size: .88rem;
+    font-weight: 600;
+    padding: .85rem 1.5rem;
+    border-radius: 10px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
+    transition: transform .15s ease, box-shadow .15s ease, opacity .15s ease;
+    cursor: pointer;
+  }
+  .btn-submit:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 10px 28px rgba(79,209,197,.3);
+  }
+  .btn-submit:active{ transform: translateY(0); }
+  .btn-submit:disabled{
+    opacity: .6;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+  }
+
+  /* Success */
+  .form-success{
+    display: none;
+    text-align: center;
+    padding: 3rem 1rem;
+  }
+  .form-success.show{ display: block; }
+  .form-success-icon{
+    width: 68px; height: 68px;
+    border-radius: 50%;
+    background: rgba(79,209,197,.1);
+    border: 2px solid var(--cyan);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--cyan);
+    font-size: 1.7rem;
+    margin-bottom: 1.2rem;
+  }
+  .form-success h4{ font-size: 1.2rem; margin-bottom: .4rem; }
+  .form-success p{
+    color: var(--text-muted);
+    font-size: .9rem;
+    margin-bottom: 1.5rem;
+    max-width: 360px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .btn-reset{
+    background: transparent;
+    border: 1px solid var(--line);
+    color: var(--text);
+    font-family: var(--font-mono);
+    font-size: .82rem;
+    padding: .55rem 1.2rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all .2s ease;
+  }
+  .btn-reset:hover{
+    border-color: var(--cyan);
+    color: var(--cyan);
+  }
+
+  /* ===== MINI INFO CARDS ===== */
+  .mini-card{
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 1.3rem 1.4rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transition: border-color .2s ease, transform .2s ease;
+  }
+  .mini-card:hover{
+    border-color: rgba(79,209,197,.2);
+    transform: translateY(-2px);
+  }
+  .mini-card-icon{
+    width: 40px; height: 40px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+  }
+  .mini-card:nth-child(1) .mini-card-icon{ background: rgba(79,209,197,.1); color: var(--cyan); }
+  .mini-card:nth-child(2) .mini-card-icon{ background: rgba(88,166,232,.1); color: var(--wp-blue); }
+  .mini-card:nth-child(3) .mini-card-icon{ background: rgba(245,185,77,.1); color: var(--amber); }
+  .mini-card-text h4{ font-size: .88rem; font-weight: 600; margin-bottom: .1rem; }
+  .mini-card-text p{ font-size: .78rem; color: var(--text-muted); margin: 0; }
+
+  /* ===== SOCIAL ROW ===== */
+  .social-cta{
+    display: flex;
+    align-items: center;
+    gap: .8rem;
+    margin-top: 1.8rem;
+  }
+  .social-cta span{
+    font-family: var(--font-mono);
+    font-size: .75rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: .06em;
+  }
+  .social-link-lg{
+    width: 42px; height: 42px;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    transition: all .2s ease;
+  }
+  .social-link-lg:hover{
+    color: var(--cyan);
+    border-color: var(--cyan);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(79,209,197,.15);
+  }
+
+  /* ===== CLOSING CTA ===== */
+  .closing-cta{
+    text-align: center;
+    position: relative;
+  }
+  .closing-cta::before{
+    content:"";
+    display: block;
+    width: 44px; height: 2px;
+    background: var(--cyan);
+    margin: 0 auto 1.5rem;
+  }
+  .closing-cta h3{
+    font-size: clamp(1.2rem, 2.2vw, 1.5rem);
+    font-weight: 600;
+    margin-bottom: .6rem;
+  }
+  .closing-cta p{
+    font-size: .9rem;
+    color: var(--text-muted);
+    max-width: 480px;
+    margin: 0 auto 1.5rem;
+  }
+  .btn-start{
+    background: var(--cyan);
+    border: none;
+    color: #06121b;
+    font-family: var(--font-mono);
+    font-size: .88rem;
+    font-weight: 600;
+    padding: .8rem 2rem;
+    border-radius: 10px;
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+    transition: transform .15s ease, box-shadow .15s ease;
+  }
+  .btn-start:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 10px 28px rgba(79,209,197,.3);
+    color: #06121b;
+  }
+
+  /* ===== SPINNER ===== */
+  .spinner{
+    width: 18px; height: 18px;
+    border: 2px solid transparent;
+    border-top-color: #06121b;
+    border-radius: 50%;
+    animation: spin .6s linear infinite;
+    display: none;
+  }
+  .btn-submit.loading .spinner{ display: block; }
+  .btn-submit.loading .btn-text{ display: none; }
+  .btn-submit.loading .btn-loading-text{ display: inline; }
+  .btn-loading-text{ display: none; }
+  @keyframes spin{ to{ transform: rotate(360deg); } }
+
+  /* ===== FOOTER ===== */
+  footer{
+    border-top: 1px solid var(--line);
+    padding: 2.2rem 0;
+  }
+  footer .brand{ font-family: var(--font-mono); color: var(--text); font-size: .9rem; }
+  footer p{ color: var(--text-muted); font-size: .82rem; margin-bottom: 0; }
+  .social-link-sm{
+    width: 34px; height: 34px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    display:inline-flex; align-items:center; justify-content:center;
+    color: var(--text-muted);
+    margin-left: .4rem;
+    transition: all .2s ease;
+    font-size: .9rem;
+  }
+  .social-link-sm:hover{ color: var(--cyan); border-color: var(--cyan); }
+
+  /* ===== SCROLL REVEAL ===== */
+  .sr{
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity .7s cubic-bezier(.16,1,.3,1), transform .7s cubic-bezier(.16,1,.3,1);
+  }
+  .sr.visible{ opacity: 1; transform: translateY(0); }
+  .sr-d1{ transition-delay: .07s; }
+  .sr-d2{ transition-delay: .14s; }
+  .sr-d3{ transition-delay: .21s; }
+  .sr-d4{ transition-delay: .28s; }
+  .sr-d5{ transition-delay: .35s; }
+
+  @media (prefers-reduced-motion: reduce){
+    *{ animation: none !important; transition: none !important; }
+    .sr{ opacity: 1; transform: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<nav class="navbar navbar-expand-lg fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="index.html"><span class="bracket">&lt;</span>Moyaz<span class="bracket">/&gt;</span></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation" style="border-color: var(--line);">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+        <li class="nav-item"><a class="nav-link" href="index.html">home</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">about</a></li>
+        <li class="nav-item"><a class="nav-link" href="skills.html">skills</a></li>
+        <li class="nav-item"><a class="nav-link" href="index.html#services">services</a></li>
+        <li class="nav-item"><a class="nav-link" href="portfolio.html">work</a></li>
+        <li class="nav-item"><a class="nav-link" href="why-me.html">why-me</a></li>
+        <li class="nav-item ms-lg-2"><a class="btn-nav-cta active" href="contact.html">contact()</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ===== PAGE HEADER ===== -->
+<header class="page-header">
+  <div class="container">
+    <div class="breadcrumb-trail">
+      <a href="index.html">home</a><span class="sep">/</span><span class="current">contact</span>
+    </div>
+    <span class="eyebrow">Contact</span>
+    <h1>Ready to Bring Your <span class="accent">Ideas to Life?</span></h1>
+    <p>Whether you need a WordPress website, a modern frontend interface, or a React application, I'm always open to discussing new projects, creative ideas, and collaboration opportunities. Feel free to reach out and let's turn your vision into reality.</p>
+  </div>
+</header>
+
+
+<!-- ===== MAIN CONTACT SECTION ===== -->
+<section id="contact-form" style="background: var(--bg-raised); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);">
+  <div class="container">
+    <div class="row g-5">
+
+      <!-- ── LEFT: Contact Info ── -->
+      <div class="col-lg-5">
+        <div class="sr">
+          <h2 style="font-size: clamp(1.4rem, 2.4vw, 1.8rem); font-weight: 700; margin-bottom: .4rem;">Let's Build Something Great Together</h2>
+          <p class="text-muted mb-4" style="font-size: .9rem;">Let's discuss your next web project. 🚀</p>
+        </div>
+
+        <div class="d-flex flex-column gap-3 mb-2">
+          <!-- Email -->
+          <div class="info-card sr sr-d1">
+            <div class="info-card-icon"><i class="bi bi-envelope"></i></div>
+            <div>
+              <div class="info-card-label">Email</div>
+              <div class="info-card-value"><a href="mailto:moyazmandal@gmail.com">moyazmandal@gmail.com</a></div>
+            </div>
+          </div>
+          <!-- WhatsApp -->
+          <div class="info-card sr sr-d2">
+            <div class="info-card-icon"><i class="bi bi-chat-dots"></i></div>
+            <div>
+              <div class="info-card-label">WhatsApp</div>
+              <div class="info-card-value">Available for quick communication</div>
+              <div class="info-card-desc">and project discussions.</div>
+            </div>
+          </div>
+          <!-- Location -->
+          <div class="info-card sr sr-d3">
+            <div class="info-card-icon"><i class="bi bi-geo-alt"></i></div>
+            <div>
+              <div class="info-card-label">Location</div>
+              <div class="info-card-value">Rangpur, Bangladesh</div>
+            </div>
+          </div>
+          <!-- GitHub -->
+          <div class="info-card sr sr-d4">
+            <div class="info-card-icon"><i class="bi bi-github"></i></div>
+            <div>
+              <div class="info-card-label">GitHub</div>
+              <div class="info-card-value">Explore my projects and development work.</div>
+            </div>
+          </div>
+          <!-- LinkedIn -->
+          <div class="info-card sr sr-d5">
+            <div class="info-card-icon"><i class="bi bi-linkedin"></i></div>
+            <div>
+              <div class="info-card-label">LinkedIn</div>
+              <div class="info-card-value">Connect with me professionally.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Social row -->
+        <div class="social-cta sr sr-d5">
+          <span>Find me on</span>
+          <a href="https://github.com/moyazmandal" class="social-link-lg" aria-label="GitHub"><i class="bi bi-github"></i></a>
+          <a href="https://www.linkedin.com/in/moyazmandal/" class="social-link-lg" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+          <a href="https://www.facebook.com/moyazmandal" class="social-link-lg" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+          <a href="https://wa.me/8801723463561" class="social-link-lg" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+        </div>
+      </div>
+
+      <!-- ── RIGHT: Contact Form ── -->
+      <div class="col-lg-7">
+        <div class="contact-form-wrap sr sr-d2">
+          <h3>Send a Message</h3>
+          <p>Fill out the form and I'll get back to you within 24 hours.</p>
+
+          <form id="contactForm" novalidate>
+            <div class="row g-3">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="name" class="form-label">Full Name <span class="req">*</span></label>
+                  <input type="text" id="name" class="form-input" placeholder="Enter your name" required>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="email" class="form-label">Email Address <span class="req">*</span></label>
+                  <input type="email" id="email" class="form-input" placeholder="Enter your email" required>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="form-group">
+                  <label for="subject" class="form-label">Subject <span class="req">*</span></label>
+                  <select id="subject" class="form-select-custom" required>
+                    <option value="" disabled selected>Project Inquiry</option>
+                    <option value="WordPress Website">WordPress Website</option>
+                    <option value="E-Commerce Store">E-Commerce Store</option>
+                    <option value="Landing Page">Landing Page</option>
+                    <option value="Frontend Development">Frontend Development</option>
+                    <option value="React Application">React Application</option>
+                    <option value="Website Redesign">Website Redesign</option>
+                    <option value="Bug Fix / Maintenance">Bug Fix / Maintenance</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="form-group">
+                  <label for="message" class="form-label">Message <span class="req">*</span></label>
+                  <textarea id="message" class="form-input" placeholder="Tell me about your project..." required></textarea>
+                </div>
+              </div>
+              <div class="col-12">
+                <button type="submit" class="btn-submit" id="submitBtn">
+                  <span class="btn-text"><i class="bi bi-send me-2"></i>Send Message</span>
+                  <span class="btn-loading-text"><span class="spinner me-2"></span>Sending...</span>
+                </button>
+              </div>
+            </div>
+          </form>
+
+          <!-- Success State -->
+          <div class="form-success" id="formSuccess">
+            <div class="form-success-icon"><i class="bi bi-check-lg"></i></div>
+            <h4>Message Sent Successfully!</h4>
+            <p>Thank you for reaching out. I'll review your message and get back to you within 24 hours.</p>
+            <button type="button" class="btn-reset" id="resetBtn"><i class="bi bi-arrow-left me-1"></i>Send Another Message</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ── MINI INFO CARDS ── -->
+    <div class="row g-3 mt-5 pt-4" style="border-top: 1px solid var(--line);">
+      <div class="col-md-4 sr sr-d1">
+        <div class="mini-card">
+          <div class="mini-card-icon"><i class="bi bi-lightning-charge"></i></div>
+          <div class="mini-card-text">
+            <h4>Fast Response</h4>
+            <p>Usually responds within 24 hours.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 sr sr-d2">
+        <div class="mini-card">
+          <div class="mini-card-icon"><i class="bi bi-globe2"></i></div>
+          <div class="mini-card-text">
+            <h4>Remote Friendly</h4>
+            <p>Available to work with clients worldwide.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 sr sr-d3">
+        <div class="mini-card">
+          <div class="mini-card-icon"><i class="bi bi-rocket-takeoff"></i></div>
+          <div class="mini-card-text">
+            <h4>Open for Projects</h4>
+            <p>Currently accepting freelance and collaborative opportunities.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===== CLOSING CTA ===== -->
+<section style="padding-top: 5rem;">
+  <div class="container">
+    <div class="closing-cta sr">
+      <h3>Have an idea in mind? Let's create a website that is <span style="color: var(--cyan);">modern</span>, <span style="color: var(--wp-blue);">functional</span>, and <span style="color: var(--amber);">built for success</span>.</h3>
+      <p>Start a conversation — no commitment, just a friendly chat about your project.</p>
+      <a href="https://wa.me/8801723463561" target="_blank" class="btn-start"><i class="bi bi-chat-dots me-2"></i>Start a Conversation</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="container d-flex flex-wrap justify-content-between align-items-center gap-3">
+    <div>
+      <div class="brand">&lt;Moyaz Mandal/&gt;</div>
+      <p>© 2026 Moyaz Mandal. Crafted with React, WordPress, and a passion for web development.</p>
+    </div>
+    <div>
+      <a href="https://github.com/moyazmandal" class="social-link-sm" aria-label="GitHub"><i class="bi bi-github"></i></a>
+      <a href="https://www.linkedin.com/in/moyazmandal/" class="social-link-sm" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+      <a href="mailto:moyazmandal@gmail.com" class="social-link-sm" aria-label="Email"><i class="bi bi-envelope"></i></a>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+<script>
+  // ===== Scroll Reveal =====
+  const srEls = document.querySelectorAll('.sr');
+  const srObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) e.target.classList.add('visible');
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+  srEls.forEach(el => srObs.observe(el));
+
+  // ===== Contact Form =====
+  const form = document.getElementById('contactForm');
+  const submitBtn = document.getElementById('submitBtn');
+  const formSuccess = document.getElementById('formSuccess');
+  const resetBtn = document.getElementById('resetBtn');
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const subject = document.getElementById('subject').value;
+    const message = document.getElementById('message').value.trim();
+
+    if (!name || !email || !subject || !message) return;
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      document.getElementById('email').focus();
+      return;
+    }
+
+    submitBtn.classList.add('loading');
+    submitBtn.disabled = true;
+
+    // Replace with Formspree / EmailJS / backend
+    setTimeout(() => {
+      form.style.display = 'none';
+      formSuccess.classList.add('show');
+      submitBtn.classList.remove('loading');
+      submitBtn.disabled = false;
+    }, 1800);
+  });
+
+  resetBtn.addEventListener('click', function() {
+    form.reset();
+    form.style.display = 'block';
+    formSuccess.classList.remove('show');
+  });
+</script>
+</body>
+</html>

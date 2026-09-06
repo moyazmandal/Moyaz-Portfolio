@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Coming Soon — Moyaz Mandal</title>
+<meta name="description" content="Something exciting is being built. Stay tuned.">
+
+        <!-- fav-icon link -->
+         <link rel="icon" href="img/moyaz_logo.png" type="image/svg+xml">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --bg:#0B1220;--bg-raised:#101A2E;--bg-card:#131F38;--line:#223154;
+    --text:#E7ECF7;--text-muted:#93A1C2;--cyan:#4FD1C5;
+    --wp-blue:#58A6E8;--amber:#F5B94D;--rose:#F472B6;--green:#34D399;
+    --font-display:'Space Grotesk',sans-serif;--font-body:'Inter',sans-serif;
+    --font-mono:'JetBrains Mono',monospace;
+  }
+  *{scroll-behavior:smooth;margin:0;padding:0;box-sizing:border-box;}
+  body{
+    background-color:var(--bg);
+    background-image:
+      radial-gradient(circle at 15% 0%,rgba(79,209,197,.08),transparent 40%),
+      radial-gradient(circle at 85% 15%,rgba(88,166,232,.08),transparent 40%),
+      linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
+      linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+    background-size:auto,auto,44px 44px,44px 44px;
+    color:var(--text);font-family:var(--font-body);line-height:1.7;
+    overflow-x:hidden;min-height:100vh;
+    display:flex;flex-direction:column;
+  }
+  h1,h2,h3,h4{font-family:var(--font-display);letter-spacing:-0.02em;}
+  a{color:var(--cyan);text-decoration:none;}
+  ::selection{background:var(--cyan);color:#06121b;}
+  a:focus-visible,button:focus-visible{outline:2px solid var(--cyan);outline-offset:3px;}
+
+  /* ===== NAVBAR ===== */
+  .navbar{
+    background:rgba(11,18,32,.75);backdrop-filter:saturate(160%) blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .navbar-brand{font-family:var(--font-mono);font-weight:600;color:var(--text)!important;font-size:1.05rem;}
+  .navbar-brand .bracket{color:var(--cyan);}
+  .nav-link{color:var(--text-muted)!important;font-family:var(--font-mono);font-size:.9rem;margin:0 .35rem;transition:color .2s ease;}
+  .nav-link:hover{color:var(--text)!important;}
+  .btn-nav-cta{font-family:var(--font-mono);font-size:.85rem;border:1px solid var(--cyan);color:var(--cyan)!important;border-radius:6px;padding:.4rem 1rem;}
+  .btn-nav-cta:hover{background:var(--cyan);color:#06121b!important;}
+
+  /* ===== HERO AREA ===== */
+  .cs-hero{
+    flex:1;display:flex;align-items:center;justify-content:center;
+    padding:9rem 0 4rem;position:relative;overflow:hidden;
+  }
+  .cs-glow{
+    position:absolute;width:600px;height:600px;border-radius:50%;
+    pointer-events:none;
+    background:radial-gradient(circle,rgba(79,209,197,.06),transparent 60%);
+    transform:translate(-50%,-50%);z-index:0;
+    animation:glow-drift 8s ease-in-out infinite;
+  }
+  @keyframes glow-drift{
+    0%,100%{left:45%;top:45%;}
+    33%{left:55%;top:40%;}
+    66%{left:40%;top:55%;}
+  }
+  .cs-content{
+    position:relative;z-index:1;text-align:center;
+    max-width:700px;padding:0 1.5rem;
+  }
+
+  /* Status badge */
+  .cs-status{
+    display:inline-flex;align-items:center;gap:.6rem;
+    font-family:var(--font-mono);font-size:.78rem;
+    color:var(--amber);background:rgba(245,185,77,.08);
+    border:1px solid rgba(245,185,77,.2);
+    padding:.5rem 1.1rem;border-radius:30px;
+    margin-bottom:2rem;
+    animation:fadeUp .8s ease both;
+  }
+  .cs-status .status-dot{
+    width:7px;height:7px;border-radius:50%;
+    background:var(--amber);
+    box-shadow:0 0 0 0 rgba(245,185,77,.5);
+    animation:pulse-dot 2s infinite;
+  }
+  @keyframes pulse-dot{
+    0%{box-shadow:0 0 0 0 rgba(245,185,77,.5);}
+    70%{box-shadow:0 0 0 6px rgba(245,185,77,0);}
+    100%{box-shadow:0 0 0 0 rgba(245,185,77,0);}
+  }
+
+  /* Heading */
+  .cs-heading{
+    font-size:clamp(2.6rem,6vw,4.2rem);
+    font-weight:700;line-height:1.08;
+    margin-bottom:1rem;
+    animation:fadeUp .8s ease .1s both;
+  }
+  .cs-heading .line2{
+    display:block;
+    background:linear-gradient(90deg,var(--cyan),var(--wp-blue));
+    -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+    background-clip:text;
+  }
+
+  /* Description */
+  .cs-desc{
+    color:var(--text-muted);font-size:1.05rem;
+    max-width:500px;margin:0 auto 2.5rem;
+    animation:fadeUp .8s ease .2s both;
+  }
+
+  @keyframes fadeUp{
+    from{opacity:0;transform:translateY(20px);}
+    to{opacity:1;transform:translateY(0);}
+  }
+
+  /* Terminal */
+  .cs-terminal{
+    background:var(--bg-card);border:1px solid var(--line);
+    border-radius:14px;overflow:hidden;
+    max-width:520px;margin:0 auto 3rem;
+    box-shadow:0 30px 60px -20px rgba(0,0,0,.5);
+    animation:fadeUp .8s ease .3s both;
+  }
+  .cs-terminal-bar{
+    display:flex;align-items:center;gap:.5rem;
+    padding:.65rem 1rem;background:var(--bg-raised);
+    border-bottom:1px solid var(--line);
+  }
+  .cs-terminal-bar span{width:11px;height:11px;border-radius:50%;display:inline-block;}
+  .cs-terminal-bar .fn{margin-left:.5rem;font-family:var(--font-mono);font-size:.75rem;color:var(--text-muted);}
+  .cs-terminal-body{
+    font-family:var(--font-mono);font-size:.85rem;
+    padding:1.3rem 1.5rem;min-height:140px;color:#C9D4EA;
+  }
+  .cs-terminal-body .kw{color:#C792EA;}
+  .cs-terminal-body .prop{color:var(--wp-blue);}
+  .cs-terminal-body .str{color:var(--amber);}
+  .cs-terminal-body .punc{color:var(--text-muted);}
+  .cs-terminal-body .fn-name{color:var(--cyan);}
+  .cs-terminal-status{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:.4rem 1rem;background:var(--bg-raised);
+    border-top:1px solid var(--line);
+    font-family:var(--font-mono);font-size:.66rem;color:var(--text-muted);
+  }
+  .cs-terminal-status .ts-left{display:flex;align-items:center;gap:.8rem;}
+  .ts-dot-sm{width:6px;height:6px;border-radius:50%;background:var(--amber);display:inline-block;margin-right:.3rem;}
+
+  /* Countdown */
+  .cs-countdown{
+    display:flex;justify-content:center;gap:1.5rem;
+    margin-bottom:3rem;animation:fadeUp .8s ease .4s both;
+  }
+  .cd-block{
+    text-align:center;min-width:80px;
+  }
+  .cd-num{
+    font-family:var(--font-display);font-size:2.4rem;
+    font-weight:700;color:var(--text);line-height:1;
+    position:relative;
+  }
+  .cd-num::after{
+    content:"";position:absolute;bottom:-6px;left:50%;
+    transform:translateX(-50%);width:30px;height:2px;
+    background:var(--line);border-radius:2px;
+  }
+  .cd-label{
+    font-family:var(--font-mono);font-size:.68rem;
+    color:var(--text-muted);text-transform:uppercase;
+    letter-spacing:.08em;margin-top:.75rem;
+  }
+  .cd-sep{
+    font-family:var(--font-display);font-size:1.6rem;
+    color:var(--line);font-weight:300;
+    line-height:1;padding-top:.3rem;
+    animation:blink-colon 1s steps(1) infinite;
+  }
+  @keyframes blink-colon{50%{opacity:.3;}}
+
+  /* Notify form */
+  .cs-notify{
+    max-width:440px;margin:0 auto;
+    animation:fadeUp .8s ease .5s both;
+  }
+  .cs-notify label{
+    font-family:var(--font-mono);font-size:.72rem;
+    color:var(--text-muted);text-transform:uppercase;
+    letter-spacing:.06em;display:block;margin-bottom:.5rem;
+  }
+  .cs-input-row{
+    display:flex;gap:.6rem;
+  }
+  .cs-input{
+    flex:1;background:var(--bg);border:1px solid var(--line);
+    border-radius:10px;padding:.7rem 1rem;
+    color:var(--text);font-family:var(--font-body);font-size:.9rem;
+    outline:none;transition:border-color .2s ease,box-shadow .2s ease;
+  }
+  .cs-input::placeholder{color:rgba(147,161,194,.35);}
+  .cs-input:focus{
+    border-color:var(--cyan);
+    box-shadow:0 0 0 3px rgba(79,209,197,.1);
+  }
+  .cs-submit{
+    background:var(--cyan);border:none;color:#06121b;
+    font-family:var(--font-mono);font-size:.85rem;font-weight:600;
+    padding:.7rem 1.4rem;border-radius:10px;cursor:pointer;
+    display:inline-flex;align-items:center;gap:.4rem;
+    transition:transform .15s ease,box-shadow .15s ease;
+    flex-shrink:0;
+  }
+  .cs-submit:hover{
+    transform:translateY(-2px);
+    box-shadow:0 10px 24px rgba(79,209,197,.25);
+  }
+  .cs-submit:disabled{opacity:.6;cursor:not-allowed;transform:none;box-shadow:none;}
+
+  /* Success */
+  .cs-success{
+    display:none;text-align:center;padding:1rem 0;
+  }
+  .cs-success.show{display:block;animation:fadeUp .5s ease both;}
+  .cs-success i{
+    font-size:1.4rem;color:var(--green);display:block;margin-bottom:.4rem;
+  }
+  .cs-success span{
+    font-family:var(--font-mono);font-size:.82rem;color:var(--green);
+  }
+
+  /* Social */
+  .cs-socials{
+    display:flex;justify-content:center;gap:.7rem;
+    margin-top:2.5rem;animation:fadeUp .8s ease .6s both;
+  }
+  .cs-social{
+    width:44px;height:44px;border:1px solid var(--line);
+    border-radius:10px;display:inline-flex;align-items:center;
+    justify-content:center;color:var(--text-muted);font-size:1.1rem;
+    transition:all .2s ease;
+  }
+  .cs-social:hover{
+    color:var(--cyan);border-color:var(--cyan);
+    transform:translateY(-3px);
+    box-shadow:0 8px 20px rgba(79,209,197,.15);
+  }
+
+  /* Footer */
+  .cs-footer{
+    border-top:1px solid var(--line);padding:2rem 0;
+    margin-top:auto;
+  }
+  .cs-footer .brand{font-family:var(--font-mono);color:var(--text);font-size:.9rem;}
+  .cs-footer p{color:var(--text-muted);font-size:.82rem;margin-bottom:0;}
+
+  /* Particles */
+  .particles{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden;}
+  .particle{position:absolute;border-radius:50%;animation:float-up linear infinite;opacity:0;}
+  @keyframes float-up{
+    0%{transform:translateY(100vh) scale(0);opacity:0;}
+    10%{opacity:1;}
+    90%{opacity:1;}
+    100%{transform:translateY(-10vh) scale(1);opacity:0;}
+  }
+
+  /* Orbit rings (decorative) */
+  .orbit-ring{
+    position:absolute;border:1px solid rgba(79,209,197,.06);
+    border-radius:50%;pointer-events:none;
+  }
+  .orbit-ring-1{
+    width:500px;height:500px;
+    top:50%;left:50%;transform:translate(-50%,-50%);
+    animation:spin-slow 40s linear infinite;
+  }
+  .orbit-ring-2{
+    width:700px;height:700px;
+    top:50%;left:50%;transform:translate(-50%,-50%);
+    animation:spin-slow 60s linear infinite reverse;
+  }
+  @keyframes spin-slow{to{transform:translate(-50%,-50%) rotate(360deg);}}
+
+  .orbit-dot{
+    position:absolute;width:5px;height:5px;border-radius:50%;
+    background:rgba(79,209,197,.4);
+    box-shadow:0 0 8px rgba(79,209,197,.3);
+  }
+  .orbit-ring-1 .orbit-dot{top:0;left:50%;transform:translateX(-50%);}
+  .orbit-ring-2 .orbit-dot{bottom:0;left:50%;transform:translateX(-50%);background:rgba(88,166,232,.4);box-shadow:0 0 8px rgba(88,166,232,.3);}
+
+  @media(max-width:575.98px){
+    .cs-countdown{gap:1rem;}
+    .cd-num{font-size:1.8rem;}
+    .cd-block{min-width:60px;}
+    .cd-sep{font-size:1.2rem;}
+    .cs-input-row{flex-direction:column;}
+    .orbit-ring-1,.orbit-ring-2{display:none;}
+  }
+  @media(prefers-reduced-motion:reduce){
+    *{animation:none!important;transition:none!important;}
+    .cs-status,.cs-heading,.cs-desc,.cs-terminal,.cs-countdown,.cs-notify,.cs-socials{animation:none!important;opacity:1;transform:none;}
+    .particle{display:none;}
+    .orbit-ring{display:none;}
+  }
+</style>
+</head>
+<body>
+
+<!-- Particles -->
+<div class="particles" id="particles"></div>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="index.html"><span class="bracket">&lt;</span>Moyaz<span class="bracket">/&gt;</span></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation" style="border-color:var(--line);">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+        <li class="nav-item"><a class="nav-link" href="index.html">home</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">about</a></li>
+        <li class="nav-item"><a class="nav-link" href="skill.html">skills</a></li>
+        <li class="nav-item"><a class="nav-link" href="portfolio.html">work</a></li>
+        <li class="nav-item"><a class="nav-link" href="why-me.html">why-me</a></li>
+        <li class="nav-item ms-lg-2"><a class="btn-nav-cta" href="contact.html">contact()</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ===== MAIN ===== -->
+<main class="cs-hero">
+  <!-- Decorative orbit rings -->
+  <div class="orbit-ring orbit-ring-1"><div class="orbit-dot"></div></div>
+  <div class="orbit-ring orbit-ring-2"><div class="orbit-dot"></div></div>
+
+  <!-- Glow -->
+  <div class="cs-glow"></div>
+
+  <div class="cs-content">
+    <!-- Status -->
+    <div class="cs-status">
+      <span class="status-dot"></span>
+      <span>Under Construction</span>
+    </div>
+
+    <!-- Heading -->
+    <h1 class="cs-heading">
+      Building Something
+      <span class="line2">Worth Waiting For</span>
+    </h1>
+
+    <!-- Desc -->
+    <p class="cs-desc">
+      My portfolio is getting a fresh new look with detailed case studies, live demos, and behind-the-scenes breakdowns. Drop your email to get notified when it's ready.
+    </p>
+
+    <!-- Terminal -->
+    <div class="cs-terminal">
+      <div class="cs-terminal-bar">
+        <span class="dot-red"></span><span class="dot-yellow"></span><span class="dot-green"></span>
+        <span class="fn">portfolio-status.js</span>
+      </div>
+      <div class="cs-terminal-body" id="termBody"></div>
+      <div class="cs-terminal-status">
+        <div class="ts-left">
+          <span><span class="ts-dot-sm"></span>building</span>
+          <span>progress: 68%</span>
+        </div>
+        <div class="ts-right"><span id="termTime"></span></div>
+      </div>
+    </div>
+
+    <!-- Countdown -->
+    <div class="cs-countdown" id="countdown">
+      <div class="cd-block">
+        <div class="cd-num" id="cd-days">00</div>
+        <div class="cd-label">Days</div>
+      </div>
+      <div class="cd-sep">:</div>
+      <div class="cd-block">
+        <div class="cd-num" id="cd-hours">00</div>
+        <div class="cd-label">Hours</div>
+      </div>
+      <div class="cd-sep">:</div>
+      <div class="cd-block">
+        <div class="cd-num" id="cd-mins">00</div>
+        <div class="cd-label">Minutes</div>
+      </div>
+      <div class="cd-sep">:</div>
+      <div class="cd-block">
+        <div class="cd-num" id="cd-secs">00</div>
+        <div class="cd-label">Seconds</div>
+      </div>
+    </div>
+
+    <!-- Notify form -->
+    <div class="cs-notify" id="notifyForm">
+      <label for="csEmail">Get notified when it's live</label>
+      <div class="cs-input-row">
+        <input type="email" id="csEmail" class="cs-input" placeholder="your@email.com" required>
+        <button class="cs-submit" id="csSubmitBtn" type="button">
+          <i class="bi bi-bell"></i> Notify Me
+        </button>
+      </div>
+      <div class="cs-success" id="csSuccess">
+        <i class="bi bi-check-circle-fill"></i>
+        <span>You're on the list! I'll notify you.</span>
+      </div>
+    </div>
+
+    <!-- Socials -->
+    <div class="cs-socials">
+      <a href="https://www.linkedin.com/in/moyazmandal/" class="cs-social" aria-label="GitHub"><i class="bi bi-github"></i></a>
+      <a href="https://www.linkedin.com/in/moyazmandal/" class="cs-social" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+      <a href="https://www.facebook.com/moyazmandal" class="cs-social" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+      <a href="mailto:moyazmandal@gmail.com" class="cs-social" aria-label="Email"><i class="bi bi-envelope"></i></a>
+    </div>
+  </div>
+</main>
+
+<!-- Footer -->
+<footer class="cs-footer">
+  <div class="container d-flex flex-wrap justify-content-between align-items-center gap-3">
+    <div>
+      <div class="brand">&lt;Moyaz Mandal/&gt;</div>
+      <p>Building modern web experiences with WordPress, React, and creativity. 🚀</p>
+    </div>
+    <div style="font-family:var(--font-mono);font-size:.72rem;color:var(--text-muted);">
+      © <span id="year"></span> All rights reserved.
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+<script>
+(function(){
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Year
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // ===== PARTICLES =====
+  if(!reduceMotion){
+    var pc = document.getElementById('particles');
+    var colors = ['rgba(79,209,197,.2)','rgba(88,166,232,.18)','rgba(245,185,77,.18)'];
+    for(var i=0;i<15;i++){
+      var p = document.createElement('div');
+      p.className='particle';
+      var s = Math.random()*2.5+1;
+      p.style.width=s+'px'; p.style.height=s+'px';
+      p.style.left=Math.random()*100+'%';
+      p.style.background=colors[Math.floor(Math.random()*colors.length)];
+      p.style.animationDuration=(Math.random()*18+14)+'s';
+      p.style.animationDelay=(Math.random()*18)+'s';
+      pc.appendChild(p);
+    }
+  }
+
+  // ===== TERMINAL TYPING =====
+  var termEl = document.getElementById('termBody');
+  var termLines = [
+    {html:'<span class="kw">const</span> <span class="prop">portfolio</span> <span class="punc">=</span> <span class="punc">{</span>'},
+    {html:'  <span class="prop">status</span><span class="punc">:</span> <span class="str">"under_construction"</span><span class="punc">,</span>'},
+    {html:'  <span class="prop">sections</span><span class="punc">:</span> <span class="punc">[</span><span class="str">"hero"</span><span class="punc">,</span> <span class="str">"projects"</span><span class="punc">,</span> <span class="str">"case-studies"</span><span class="punc">],</span>'},
+    {html:'  <span class="prop">features</span><span class="punc">:</span> <span class="punc">[</span><span class="str">"live-demos"</span><span class="punc">,</span> <span class="str">"hover-effects"</span><span class="punc">,</span> <span class="str">"details"</span><span class="punc">],</span>'},
+    {html:'  <span class="prop">progress</span><span class="punc">:</span> <span class="fn-name">getProgress</span><span class="punc">(),</span>'},
+    {html:'  <span class="prop">eta</span><span class="punc">:</span> <span class="str">"soon™"</span>'},
+    {html:'<span class="punc">};</span>'}
+  ];
+
+  if(reduceMotion){
+    termEl.innerHTML = termLines.map(function(l){return l.html}).join('\n');
+    return;
+  }
+  var out='', li=0;
+  function typeTerm(){
+    if(li>=termLines.length) return;
+    out+=(li>0?'\n':'')+termLines[li].html;
+    termEl.innerHTML=out;
+    li++;
+    setTimeout(typeTerm,200);
+  }
+  setTimeout(typeTerm,600);
+
+  // Terminal time
+  function updateTime(){
+    var now=new Date();
+    var h=String(now.getHours()).padStart(2,'0');
+    var m=String(now.getMinutes()).padStart(2,'0');
+    var s=String(now.getSeconds()).padStart(2,'0');
+    document.getElementById('termTime').textContent=h+':'+m+':'+s;
+  }
+  updateTime();
+  setInterval(updateTime,1000);
+
+  // ===== COUNTDOWN =====
+  // Set target date 30 days from now
+  var target = new Date();
+  target.setDate(target.getDate()+30);
+  target.setHours(0,0,0,0);
+
+  function updateCountdown(){
+    var now=new Date();
+    var diff=target-now;
+    if(diff<=0){
+      document.getElementById('cd-days').textContent='00';
+      document.getElementById('cd-hours').textContent='00';
+      document.getElementById('cd-mins').textContent='00';
+      document.getElementById('cd-secs').textContent='00';
+      return;
+    }
+    var d=Math.floor(diff/(1000*60*60*24));
+    var h=Math.floor((diff%(1000*60*60*24))/(1000*60*60));
+    var m=Math.floor((diff%(1000*60*60))/(1000*60));
+    var s=Math.floor((diff%(1000*60))/1000);
+    document.getElementById('cd-days').textContent=String(d).padStart(2,'0');
+    document.getElementById('cd-hours').textContent=String(h).padStart(2,'0');
+    document.getElementById('cd-mins').textContent=String(m).padStart(2,'0');
+    document.getElementById('cd-secs').textContent=String(s).padStart(2,'0');
+  }
+  updateCountdown();
+  setInterval(updateCountdown,1000);
+
+  // ===== NOTIFY FORM =====
+  var csSubmit = document.getElementById('csSubmitBtn');
+  var csEmail = document.getElementById('csEmail');
+  var csSuccess = document.getElementById('csSuccess');
+  var csForm = document.getElementById('notifyForm');
+
+  csSubmit.addEventListener('click',function(){
+    var email=csEmail.value.trim();
+    var regex=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if(!email||!regex.test(email)){
+      csEmail.style.borderColor='rgba(239,68,68,.5)';
+      csEmail.focus();
+      setTimeout(function(){csEmail.style.borderColor='';},2000);
+      return;
+    }
+    csSubmit.disabled=true;
+    csSubmit.innerHTML='<span class="spinner" style="width:16px;height:16px;border:2px solid transparent;border-top-color:#06121b;border-radius:50%;display:inline-block;animation:spin .5s linear infinite;"></span>';
+    setTimeout(function(){
+      csForm.style.display='none';
+      csSuccess.classList.add('show');
+    },1200);
+  });
+
+  csEmail.addEventListener('keydown',function(e){
+    if(e.key==='Enter') csSubmit.click();
+  });
+
+  // ===== SPIN KEYFRAME (for submit) =====
+  var spinStyle=document.createElement('style');
+  spinStyle.textContent='@keyframes spin{to{transform:rotate(360deg)}}';
+  document.head.appendChild(spinStyle);
+})();
+</script>
+</body>
+</html>

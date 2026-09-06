@@ -1,0 +1,1050 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Why Choose Me — Moyaz Mandal | WordPress · Frontend · React Developer</title>
+<meta name="description" content="Why choose Moyaz Mandal — Modern development, responsive design, performance-focused, user-centered approach, and reliable communication.">
+
+        <!-- fav-icon link -->
+         <link rel="icon" href="img/moyaz_logo.png" type="image/svg+xml">
+<!-- Bootstrap 5 -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
+<!-- Bootstrap Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css">
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --bg:            #0B1220;
+    --bg-raised:     #101A2E;
+    --bg-card:       #131F38;
+    --line:          #223154;
+    --text:          #E7ECF7;
+    --text-muted:    #93A1C2;
+    --cyan:          #4FD1C5;
+    --wp-blue:       #58A6E8;
+    --amber:         #F5B94D;
+    --rose:          #F472B6;
+    --green:         #34D399;
+    --font-display:  'Space Grotesk', sans-serif;
+    --font-body:     'Inter', sans-serif;
+    --font-mono:     'JetBrains Mono', monospace;
+  }
+
+  *{ scroll-behavior: smooth; }
+
+  body{
+    background-color: var(--bg);
+    background-image:
+      radial-gradient(circle at 15% 0%, rgba(79,209,197,0.08), transparent 40%),
+      radial-gradient(circle at 85% 15%, rgba(88,166,232,0.08), transparent 40%),
+      linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+    background-size: auto, auto, 44px 44px, 44px 44px;
+    color: var(--text);
+    font-family: var(--font-body);
+    line-height: 1.7;
+  }
+
+  h1,h2,h3,h4,.display-font{ font-family: var(--font-display); letter-spacing: -0.02em; }
+
+  a{ color: var(--cyan); text-decoration: none; }
+  ::selection{ background: var(--cyan); color: #06121b; }
+  a:focus-visible, button:focus-visible{ outline: 2px solid var(--cyan); outline-offset: 3px; }
+
+  .eyebrow{
+    font-family: var(--font-mono);
+    font-size: .78rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--cyan);
+  }
+  .eyebrow::before{ content:"// "; color: var(--text-muted); }
+
+  section{ position: relative; padding: 6.5rem 0; }
+  @media (max-width: 767.98px){ section{ padding: 4rem 0; } }
+
+  .section-title{ font-size: clamp(1.9rem, 3.2vw, 2.6rem); font-weight: 700; margin-bottom: .6rem; }
+  .section-sub{ color: var(--text-muted); max-width: 640px; }
+
+  /* ===== NAVBAR ===== */
+  .navbar{
+    background: rgba(11,18,32,0.75);
+    backdrop-filter: saturate(160%) blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  .navbar-brand{
+    font-family: var(--font-mono);
+    font-weight: 600;
+    color: var(--text) !important;
+    font-size: 1.05rem;
+  }
+  .navbar-brand .bracket{ color: var(--cyan); }
+  .nav-link{
+    color: var(--text-muted) !important;
+    font-family: var(--font-mono);
+    font-size: .9rem;
+    margin: 0 .35rem;
+    transition: color .2s ease;
+  }
+  .nav-link:hover, .nav-link.active{ color: var(--text) !important; }
+  .btn-nav-cta{
+    font-family: var(--font-mono);
+    font-size: .85rem;
+    border: 1px solid var(--cyan);
+    color: var(--cyan) !important;
+    border-radius: 6px;
+    padding: .4rem 1rem;
+  }
+  .btn-nav-cta:hover{ background: var(--cyan); color: #06121b !important; }
+
+  .btn-primary-cta{
+    background: var(--cyan);
+    border: none;
+    color: #06121b;
+    font-weight: 600;
+    padding: .7rem 1.5rem;
+    border-radius: 8px;
+    transition: transform .15s ease, box-shadow .15s ease;
+  }
+  .btn-primary-cta:hover{ transform: translateY(-2px); box-shadow: 0 10px 24px rgba(79,209,197,.25); color: #06121b; }
+
+  /* ===== PAGE HEADER ===== */
+  .page-header{
+    padding-top: 9.5rem;
+    padding-bottom: 3.5rem;
+    text-align: center;
+  }
+  .breadcrumb-trail{
+    font-family: var(--font-mono);
+    font-size: .82rem;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+  }
+  .breadcrumb-trail a{ color: var(--text-muted); }
+  .breadcrumb-trail a:hover{ color: var(--cyan); }
+  .breadcrumb-trail .sep{ margin: 0 .5rem; color: var(--line); }
+  .breadcrumb-trail .current{ color: var(--cyan); }
+  .page-header h1{
+    font-size: clamp(2.2rem, 4.4vw, 3.2rem);
+    font-weight: 700;
+    margin: .6rem 0 .8rem;
+  }
+  .page-header p{
+    color: var(--text-muted);
+    max-width: 640px;
+    margin: 0 auto;
+  }
+
+  /* ===== WHY CARDS ===== */
+  .why-card{
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 2rem 1.8rem;
+    height: 100%;
+    transition: border-color .3s ease, transform .3s ease, box-shadow .3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  .why-card::before{
+    content:"";
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    opacity: 0;
+    transition: opacity .3s ease;
+  }
+  .why-card:hover::before{ opacity: 1; }
+  .why-card:hover{
+    transform: translateY(-6px);
+    box-shadow: 0 20px 50px -15px rgba(0,0,0,.5);
+  }
+  .why-card:nth-child(1)::before{ background: linear-gradient(90deg, transparent, var(--cyan), transparent); }
+  .why-card:nth-child(1):hover{ border-color: rgba(79,209,197,.25); }
+  .why-card:nth-child(2)::before{ background: linear-gradient(90deg, transparent, var(--wp-blue), transparent); }
+  .why-card:nth-child(2):hover{ border-color: rgba(88,166,232,.25); }
+  .why-card:nth-child(3)::before{ background: linear-gradient(90deg, transparent, var(--amber), transparent); }
+  .why-card:nth-child(3):hover{ border-color: rgba(245,185,77,.25); }
+  .why-card:nth-child(4)::before{ background: linear-gradient(90deg, transparent, var(--rose), transparent); }
+  .why-card:nth-child(4):hover{ border-color: rgba(244,114,182,.25); }
+  .why-card:nth-child(5)::before{ background: linear-gradient(90deg, transparent, var(--green), transparent); }
+  .why-card:nth-child(5):hover{ border-color: rgba(52,211,153,.25); }
+  .why-card:nth-child(6)::before{ background: linear-gradient(90deg, transparent, var(--cyan), transparent); }
+  .why-card:nth-child(6):hover{ border-color: rgba(79,209,197,.25); }
+
+  .why-card-num{
+    position: absolute;
+    top: 1.2rem; right: 1.4rem;
+    font-family: var(--font-display);
+    font-size: 2.8rem;
+    font-weight: 700;
+    line-height: 1;
+    opacity: .05;
+    pointer-events: none;
+  }
+  .why-card-icon{
+    width: 52px; height: 52px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.35rem;
+    margin-bottom: 1.3rem;
+    transition: transform .25s ease, background .25s ease;
+  }
+  .why-card:hover .why-card-icon{ transform: scale(1.1); }
+  .why-card:nth-child(1) .why-card-icon{ background: rgba(79,209,197,.1); color: var(--cyan); }
+  .why-card:nth-child(1):hover .why-card-icon{ background: rgba(79,209,197,.18); }
+  .why-card:nth-child(2) .why-card-icon{ background: rgba(88,166,232,.1); color: var(--wp-blue); }
+  .why-card:nth-child(2):hover .why-card-icon{ background: rgba(88,166,232,.18); }
+  .why-card:nth-child(3) .why-card-icon{ background: rgba(245,185,77,.1); color: var(--amber); }
+  .why-card:nth-child(3):hover .why-card-icon{ background: rgba(245,185,77,.18); }
+  .why-card:nth-child(4) .why-card-icon{ background: rgba(244,114,182,.1); color: var(--rose); }
+  .why-card:nth-child(4):hover .why-card-icon{ background: rgba(244,114,182,.18); }
+  .why-card:nth-child(5) .why-card-icon{ background: rgba(52,211,153,.1); color: var(--green); }
+  .why-card:nth-child(5):hover .why-card-icon{ background: rgba(52,211,153,.18); }
+  .why-card:nth-child(6) .why-card-icon{ background: rgba(79,209,197,.1); color: var(--cyan); }
+  .why-card:nth-child(6):hover .why-card-icon{ background: rgba(79,209,197,.18); }
+
+  .why-card h3{ font-size: 1.08rem; font-weight: 600; margin-bottom: .6rem; transition: color .2s ease; }
+  .why-card:nth-child(1):hover h3{ color: var(--cyan); }
+  .why-card:nth-child(2):hover h3{ color: var(--wp-blue); }
+  .why-card:nth-child(3):hover h3{ color: var(--amber); }
+  .why-card:nth-child(4):hover h3{ color: var(--rose); }
+  .why-card:nth-child(5):hover h3{ color: var(--green); }
+  .why-card:nth-child(6):hover h3{ color: var(--cyan); }
+  .why-card p{ font-size: .88rem; color: var(--text-muted); margin: 0; line-height: 1.65; }
+
+  /* ===== BOTTOM STATEMENT ===== */
+  .bottom-statement{
+    text-align: center;
+    max-width: 680px;
+    margin: 0 auto;
+    position: relative;
+    padding: 3rem 2rem;
+  }
+  .bottom-statement::before{
+    content:"";
+    display: block;
+    width: 44px; height: 2px;
+    background: var(--cyan);
+    margin: 0 auto 1.5rem;
+  }
+  .bottom-statement p{
+    font-family: var(--font-mono);
+    font-size: .95rem;
+    color: var(--text-muted);
+    line-height: 1.8;
+    margin: 0;
+  }
+  .bottom-statement .highlight{ color: var(--text); font-weight: 500; }
+
+  /* ══════════════════════════════════════ */
+  /* ===== EXPERIENCE STATS SECTION ===== */
+  /* ══════════════════════════════════════ */
+
+  /* Hero stat row */
+  .exp-hero-grid{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1rem;
+  }
+  @media (max-width: 991.98px){ .exp-hero-grid{ grid-template-columns: repeat(3, 1fr); } }
+  @media (max-width: 575.98px){ .exp-hero-grid{ grid-template-columns: repeat(2, 1fr); } }
+
+  .exp-hero-card{
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 1.6rem 1.2rem;
+    text-align: center;
+    transition: border-color .2s ease, transform .2s ease, box-shadow .2s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  .exp-hero-card::after{
+    content:"";
+    position: absolute;
+    bottom: 0; left: 50%;
+    transform: translateX(-50%);
+    width: 0; height: 2px;
+    transition: width .3s ease;
+  }
+  .exp-hero-card:hover::after{ width: 50%; }
+  .exp-hero-card:hover{
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px -10px rgba(0,0,0,.4);
+  }
+
+  .exp-hero-card:nth-child(1)::after{ background: var(--cyan); }
+  .exp-hero-card:nth-child(1):hover{ border-color: rgba(79,209,197,.25); }
+  .exp-hero-card:nth-child(2)::after{ background: var(--wp-blue); }
+  .exp-hero-card:nth-child(2):hover{ border-color: rgba(88,166,232,.25); }
+  .exp-hero-card:nth-child(3)::after{ background: var(--amber); }
+  .exp-hero-card:nth-child(3):hover{ border-color: rgba(245,185,77,.25); }
+  .exp-hero-card:nth-child(4)::after{ background: var(--rose); }
+  .exp-hero-card:nth-child(4):hover{ border-color: rgba(244,114,182,.25); }
+  .exp-hero-card:nth-child(5)::after{ background: var(--green); }
+  .exp-hero-card:nth-child(5):hover{ border-color: rgba(52,211,153,.25); }
+
+  .exp-hero-icon{
+    width: 42px; height: 42px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    margin-bottom: .8rem;
+    transition: transform .2s ease;
+  }
+  .exp-hero-card:hover .exp-hero-icon{ transform: scale(1.1); }
+  .exp-hero-card:nth-child(1) .exp-hero-icon{ background: rgba(79,209,197,.1); color: var(--cyan); }
+  .exp-hero-card:nth-child(2) .exp-hero-icon{ background: rgba(88,166,232,.1); color: var(--wp-blue); }
+  .exp-hero-card:nth-child(3) .exp-hero-icon{ background: rgba(245,185,77,.1); color: var(--amber); }
+  .exp-hero-card:nth-child(4) .exp-hero-icon{ background: rgba(244,114,182,.1); color: var(--rose); }
+  .exp-hero-card:nth-child(5) .exp-hero-icon{ background: rgba(52,211,153,.1); color: var(--green); }
+
+  .exp-hero-num{
+    font-family: var(--font-display);
+    font-size: 2.2rem;
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: .3rem;
+  }
+  .exp-hero-card:nth-child(1) .exp-hero-num{ color: var(--cyan); }
+  .exp-hero-card:nth-child(2) .exp-hero-num{ color: var(--wp-blue); }
+  .exp-hero-card:nth-child(3) .exp-hero-num{ color: var(--amber); }
+  .exp-hero-card:nth-child(4) .exp-hero-num{ color: var(--rose); }
+  .exp-hero-card:nth-child(5) .exp-hero-num{ color: var(--green); }
+
+  .exp-hero-lab{
+    font-family: var(--font-mono);
+    font-size: .68rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: .05em;
+  }
+
+  /* Experience breakdown */
+  .exp-breakdown{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.2rem;
+  }
+  @media (max-width: 767.98px){ .exp-breakdown{ grid-template-columns: 1fr; } }
+
+  .exp-detail-card{
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 1.6rem 1.8rem;
+    transition: border-color .2s ease, transform .2s ease;
+  }
+  .exp-detail-card:hover{
+    border-color: rgba(79,209,197,.2);
+    transform: translateY(-3px);
+  }
+  .exp-detail-header{
+    display: flex;
+    align-items: center;
+    gap: .8rem;
+    margin-bottom: 1rem;
+  }
+  .exp-detail-icon{
+    width: 40px; height: 40px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    flex-shrink: 0;
+  }
+  .exp-detail-card:nth-child(1) .exp-detail-icon{ background: rgba(88,166,232,.1); color: var(--wp-blue); }
+  .exp-detail-card:nth-child(2) .exp-detail-icon{ background: rgba(79,209,197,.1); color: var(--cyan); }
+  .exp-detail-card:nth-child(3) .exp-detail-icon{ background: rgba(245,185,77,.1); color: var(--amber); }
+  .exp-detail-card:nth-child(4) .exp-detail-icon{ background: rgba(244,114,182,.1); color: var(--rose); }
+
+  .exp-detail-title{
+    font-size: .95rem;
+    font-weight: 600;
+  }
+  .exp-detail-count{
+    font-family: var(--font-mono);
+    font-size: .72rem;
+    color: var(--text-muted);
+    margin-left: auto;
+    flex-shrink: 0;
+  }
+
+  .exp-detail-list{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: .65rem;
+  }
+  .exp-detail-item{
+    display: flex;
+    align-items: center;
+    gap: .7rem;
+    font-size: .85rem;
+    color: var(--text-muted);
+  }
+  .exp-detail-item .edi-dot{
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .exp-detail-card:nth-child(1) .edi-dot{ background: var(--wp-blue); }
+  .exp-detail-card:nth-child(2) .edi-dot{ background: var(--cyan); }
+  .exp-detail-card:nth-child(3) .edi-dot{ background: var(--amber); }
+  .exp-detail-card:nth-child(4) .edi-dot{ background: var(--rose); }
+
+  .exp-detail-item span{
+    flex: 1;
+  }
+  .exp-detail-item .edi-count{
+    font-family: var(--font-mono);
+    font-size: .72rem;
+    color: var(--text);
+    font-weight: 500;
+    flex-shrink: 0;
+  }
+
+  /* Progress mini bars */
+  .exp-mini-bar{
+    width: 100%;
+    height: 4px;
+    background: rgba(255,255,255,.05);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-top: 1rem;
+  }
+  .exp-mini-fill{
+    height: 100%;
+    border-radius: 4px;
+    width: 0%;
+    transition: width 1s cubic-bezier(.16,1,.3,1);
+  }
+  .exp-mini-fill.go{ width: var(--w); }
+  .exp-detail-card:nth-child(1) .exp-mini-fill{ background: var(--wp-blue); }
+  .exp-detail-card:nth-child(2) .exp-mini-fill{ background: var(--cyan); }
+  .exp-detail-card:nth-child(3) .exp-mini-fill{ background: var(--amber); }
+  .exp-detail-card:nth-child(4) .exp-mini-fill{ background: var(--rose); }
+
+  /* Client trust badges */
+  .trust-row{
+    display: flex;
+    flex-wrap: wrap;
+    gap: .6rem;
+    justify-content: center;
+  }
+  .trust-badge{
+    font-family: var(--font-mono);
+    font-size: .72rem;
+    color: var(--text-muted);
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    padding: .5rem 1rem;
+    border-radius: 8px;
+    display: inline-flex;
+    align-items: center;
+    gap: .4rem;
+    transition: all .2s ease;
+  }
+  .trust-badge:hover{
+    border-color: rgba(79,209,197,.3);
+    color: var(--cyan);
+    transform: translateY(-2px);
+  }
+  .trust-badge i{ font-size: .7rem; color: var(--cyan); }
+
+  /* ===== COMPARISON TABLE ===== */
+  .compare-panel{
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    overflow: hidden;
+  }
+  .compare-header{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-bottom: 1px solid var(--line);
+  }
+  .compare-header > div{
+    padding: 1.2rem 1.8rem;
+    font-family: var(--font-mono);
+    font-size: .8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+  }
+  .compare-header .ch-bad{ color: var(--text-muted); background: rgba(255,255,255,.015); }
+  .compare-header .ch-good{ color: var(--cyan); background: rgba(79,209,197,.05); border-left: 1px solid var(--line); }
+  .compare-row{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-bottom: 1px solid rgba(255,255,255,.03);
+    transition: background .2s ease;
+  }
+  .compare-row:last-child{ border-bottom: none; }
+  .compare-row:hover{ background: rgba(255,255,255,.015); }
+  .compare-row > div{
+    padding: 1rem 1.8rem;
+    font-size: .88rem;
+    display: flex;
+    align-items: center;
+    gap: .7rem;
+  }
+  .compare-row .cr-bad{ color: var(--text-muted); background: rgba(255,255,255,.01); }
+  .compare-row .cr-good{ color: var(--text); border-left: 1px solid var(--line); background: rgba(79,209,197,.01); }
+  .cr-icon-bad{ color: rgba(239,68,68,.6); font-size: .85rem; flex-shrink: 0; }
+  .cr-icon-good{ color: var(--cyan); font-size: .85rem; flex-shrink: 0; }
+
+  /* ===== PROCESS BADGES ===== */
+  .process-wrap{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: .6rem;
+  }
+  .process-badge{
+    font-family: var(--font-mono);
+    font-size: .75rem;
+    color: var(--text-muted);
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    padding: .5rem 1rem;
+    border-radius: 8px;
+    display: inline-flex;
+    align-items: center;
+    gap: .4rem;
+    transition: all .2s ease;
+  }
+  .process-badge:hover{
+    border-color: rgba(79,209,197,.3);
+    color: var(--cyan);
+    transform: translateY(-2px);
+  }
+  .process-badge i{ font-size: .7rem; }
+
+  /* ===== CONTACT PANEL ===== */
+  .contact-panel{
+    background: linear-gradient(135deg, var(--bg-card), var(--bg-raised));
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    padding: 4rem 2.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .contact-panel::before{
+    content:"";
+    position:absolute; inset:0;
+    background: radial-gradient(circle at 50% 0%, rgba(79,209,197,.12), transparent 55%);
+  }
+  .contact-panel > *{ position: relative; z-index: 1; }
+  .contact-panel h2{ font-size: clamp(1.8rem, 3.4vw, 2.5rem); margin-bottom: .8rem; }
+  .contact-panel p{ color: var(--text-muted); max-width: 560px; margin: 0 auto 1.8rem; }
+
+  /* ===== FOOTER ===== */
+  footer{
+    border-top: 1px solid var(--line);
+    padding: 2.2rem 0;
+  }
+  footer .brand{ font-family: var(--font-mono); color: var(--text); }
+  footer p{ color: var(--text-muted); font-size: .88rem; margin-bottom: 0; }
+  .social-link{
+    width: 38px; height: 38px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    display:inline-flex; align-items:center; justify-content:center;
+    color: var(--text-muted);
+    margin-left: .5rem;
+    transition: all .2s ease;
+  }
+  .social-link:hover{ color: var(--cyan); border-color: var(--cyan); }
+
+  /* ===== SCROLL REVEAL ===== */
+  .sr{
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity .7s cubic-bezier(.16,1,.3,1), transform .7s cubic-bezier(.16,1,.3,1);
+  }
+  .sr.visible{ opacity: 1; transform: translateY(0); }
+  .sr-d1{ transition-delay: .07s; }
+  .sr-d2{ transition-delay: .14s; }
+  .sr-d3{ transition-delay: .21s; }
+  .sr-d4{ transition-delay: .28s; }
+  .sr-d5{ transition-delay: .35s; }
+  .sr-d6{ transition-delay: .42s; }
+
+  @media (prefers-reduced-motion: reduce){
+    *{ animation: none !important; transition: none !important; }
+    .sr{ opacity: 1; transform: none; }
+    .exp-mini-fill{ transition: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<nav class="navbar navbar-expand-lg fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="index.html"><span class="bracket">&lt;</span>Moyaz<span class="bracket">/&gt;</span></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation" style="border-color: var(--line);">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+        <li class="nav-item"><a class="nav-link" href="index.html">home</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">about</a></li>
+        <li class="nav-item"><a class="nav-link" href="skills.html">skills</a></li>
+        <li class="nav-item"><a class="nav-link" href="portfolio.html">work</a></li>
+        <li class="nav-item"><a class="nav-link active" href="why-me.html">why-me</a></li>
+        <li class="nav-item ms-lg-2"><a class="btn-nav-cta" href="contact.html">contact()</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ===== PAGE HEADER ===== -->
+<header class="page-header">
+  <div class="container">
+    <div class="breadcrumb-trail">
+      <a href="index.html">home</a><span class="sep">/</span><span class="current">why choose me</span>
+    </div>
+    <span class="eyebrow">Why Choose Me</span>
+    <h1>Delivering More Than Just Websites</h1>
+    <p>I focus on creating websites that are not only visually appealing but also fast, responsive, and designed to achieve real results. Every project is built with attention to detail, performance, and user experience.</p>
+  </div>
+</header>
+
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- ===== EXPERIENCE & STATS SECTION ===== -->
+<!-- ═══════════════════════════════════════════ -->
+<section style="padding-bottom: 0;">
+  <div class="container">
+    <div class="text-center mb-5 sr">
+      <span class="eyebrow">My Experience</span>
+      <h2 class="section-title mt-2 mb-3">Numbers That Speak</h2>
+      <p class="section-sub mx-auto">A snapshot of my journey — projects delivered, clients served, and the impact created through dedicated work.</p>
+    </div>
+
+    <!-- 5 Hero Stats -->
+    <div class="exp-hero-grid mb-5">
+      <div class="exp-hero-card sr sr-d1">
+        <div class="exp-hero-icon"><i class="bi bi-calendar3"></i></div>
+        <div class="exp-hero-num" data-count="2" data-suffix="+">0+</div>
+        <div class="exp-hero-lab">Years Experience</div>
+      </div>
+      <div class="exp-hero-card sr sr-d2">
+        <div class="exp-hero-icon"><i class="bi bi-people"></i></div>
+        <div class="exp-hero-num" data-count="15" data-suffix="+">0+</div>
+        <div class="exp-hero-lab">Happy Clients</div>
+      </div>
+      <div class="exp-hero-card sr sr-d3">
+        <div class="exp-hero-icon"><i class="bi bi-folder-check"></i></div>
+        <div class="exp-hero-num" data-count="25" data-suffix="+">0+</div>
+        <div class="exp-hero-lab">Projects Completed</div>
+      </div>
+      <div class="exp-hero-card sr sr-d4">
+        <div class="exp-hero-icon"><i class="bi bi-star"></i></div>
+        <div class="exp-hero-num" data-count="100" data-suffix="%">0%</div>
+        <div class="exp-hero-lab">Client Satisfaction</div>
+      </div>
+      <div class="exp-hero-card sr sr-d5">
+        <div class="exp-hero-icon"><i class="bi bi-arrow-repeat"></i></div>
+        <div class="exp-hero-num" data-count="80" data-suffix="%">0%</div>
+        <div class="exp-hero-lab">Repeat Clients</div>
+      </div>
+    </div>
+
+    <!-- Trust badges -->
+    <div class="trust-row sr sr-d3 mb-5">
+      <span class="trust-badge"><i class="bi bi-check-circle-fill"></i> Fiverr Verified</span>
+      <span class="trust-badge"><i class="bi bi-check-circle-fill"></i> 5-Star Ratings</span>
+      <span class="trust-badge"><i class="bi bi-check-circle-fill"></i> On-Time Delivery</span>
+      <span class="trust-badge"><i class="bi bi-check-circle-fill"></i> Clean Code Guarantee</span>
+      <span class="trust-badge"><i class="bi bi-check-circle-fill"></i> Post-Launch Support</span>
+    </div>
+
+    <!-- Detailed Breakdown (2×2) -->
+    <div class="exp-breakdown">
+      <!-- WordPress Projects -->
+      <div class="exp-detail-card sr sr-d1">
+        <div class="exp-detail-header">
+          <div class="exp-detail-icon"><i class="bi bi-wordpress"></i></div>
+          <span class="exp-detail-title">WordPress Projects</span>
+          <span class="exp-detail-count">12 projects</span>
+        </div>
+        <ul class="exp-detail-list">
+          <li class="exp-detail-item">
+            <span class="edi-dot"></span>
+            <span>Business / Corporate Websites</span>
+            <span class="edi-count">5</span>
+          </li>
+          <li class="exp-detail-item">
+            <span class="edi-dot"></span>
+            <span>E-Commerce (WooCommerce)</span>
+            <span class="edi-count">3</span>
+          </li>
+          <li class="exp-detail-item">
+            <span class="edi-dot"></span>
+            <span>Landing Pages</span>
+            <span class="edi-count">3</span>
+          </li>
+          <li class="exp-detail-item">
+            <span class="edi-dot"></span>
+            <span>Portfolio / Personal Sites</span>
+            <span class="edi-count">1</span>
+          </li>
+        </ul>
+        <div class="exp-mini-bar"><div class="exp-mini-fill" style="--w: 90%"></div></div>
+      </div>
+
+      <!-- Frontend Projects -->
+      <div class="exp-detail-card sr sr-d2">
+        <div class="exp-detail-header">
+          <div class="exp-detail-icon"><i class="bi bi-code-slash"></i></div>
+          <span class="exp-detail-title">Frontend Projects</span>
+          <span class="exp-detail-count">8 projects</span>
+        </div>
+        <ul class="exp-detail-list">
+          <li class="exp-detail-item">
+            <span class="edi-dot"></span>
+            <span>Static / Marketing Websites</span>
+            <span class="edi-count">3</span>
+          </li>
+          <li class="exp-detail-item">
+            <span class="edi-dot"></span>
+            <span>Dashboard / Admin UI</span>
+            <span class="edi-count">2</span>
+          </li>
+          <li class="exp-detail-item">
+            <span class="edi-dot"></span>
+            <span>Portfolio Sites</span>
+            <span class="edi-count">2</span>
+          </li>
+          <li class="exp-detail-item">
+            <span class="edi-dot"></span>
+            <span>Landing Pages (HTML/CSS/JS)</span>
+            <span class="edi-count">1</span>
+          </li>
+        </ul>
+        <div class="exp-mini-bar"><div class="exp-mini-fill" style="--w: 75%"></div></div>
+      </div>
+
+      <!-- React Projects -->
+      <div class="exp-detail-card sr sr-d3">
+        <div class="exp-detail-header">
+          <div class="exp-detail-icon"><i class="bi bi-hexagon"></i></div>
+          <span class="exp-detail-title">React Projects</span>
+          <span class="exp-detail-count">5 projects</span>
+        </div>
+        <ul class="exp-detail-list">
+          <li class="exp-detail-item">
+            <span class="edi-dot"></span>
+            <span>Task / Project Management</span>
+            <span class="edi-count">1</span>
+          </li>
+          <li class="exp-detail-item">
+            <span class="edi-dot"></span>
+            <span>API Integration Apps</span>
+            <span class="edi-count">2</span>
+          </li>
+          <li class="exp-detail-item">
+            <span class="edi-dot"></span>
+            <span>E-Commerce Frontend</span>
+            <span class="edi-count">1</span>
+          </li>
+          <li class="exp-detail-item">
+            <span class="edi-dot"></span>
+            <span>Utility / Tracker Apps</span>
+            <span class="edi-count">1</span>
+          </li>
+        </ul>
+        <div class="exp-mini-bar"><div class="exp-mini-fill" style="--w: 60%"></div></div>
+      </div>
+
+      <!-- Client Types -->
+      <div class="exp-detail-card sr sr-d4">
+        <div class="exp-detail-header">
+          <div class="exp-detail-icon"><i class="bi bi-person-lines-fill"></i></div>
+          <span class="exp-detail-title">Clients I've Worked With</span>
+          <span class="exp-detail-count">15+ clients</span>
+        </div>
+        <ul class="exp-detail-list">
+          <li class="exp-detail-item">
+            <span class="edi-dot"></span>
+            <span>Small Business Owners</span>
+            <span class="edi-count">6</span>
+          </li>
+          <li class="exp-detail-item">
+            <span class="edi-dot"></span>
+            <span>Freelance Clients (Fiverr)</span>
+            <span class="edi-count">5</span>
+          </li>
+          <li class="exp-detail-item">
+            <span class="edi-dot"></span>
+            <span>Startups & Agencies</span>
+            <span class="edi-count">3</span>
+          </li>
+          <li class="exp-detail-item">
+            <span class="edi-dot"></span>
+            <span>Personal / Academic Projects</span>
+            <span class="edi-count">4</span>
+          </li>
+        </ul>
+        <div class="exp-mini-bar"><div class="exp-mini-fill" style="--w: 85%"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===== 6 REASON CARDS ===== -->
+<section>
+  <div class="container">
+    <div class="text-center mb-5 sr">
+      <span class="eyebrow">What I Offer</span>
+      <h2 class="section-title mt-2 mb-3">Six Reasons to Work With Me</h2>
+      <p class="section-sub mx-auto">Beyond the numbers — here's what makes every collaboration smooth and successful.</p>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-4 sr sr-d1">
+        <div class="why-card">
+          <span class="why-card-num">01</span>
+          <div class="why-card-icon"><i class="bi bi-rocket-takeoff"></i></div>
+          <h3>Modern Development</h3>
+          <p>I use modern technologies and best practices to build clean, scalable, and future-ready web solutions.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 sr sr-d2">
+        <div class="why-card">
+          <span class="why-card-num">02</span>
+          <div class="why-card-icon"><i class="bi bi-phone"></i></div>
+          <h3>Fully Responsive Design</h3>
+          <p>Every website is optimized for desktops, tablets, and mobile devices to ensure a seamless experience across all screen sizes.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 sr sr-d3">
+        <div class="why-card">
+          <span class="why-card-num">03</span>
+          <div class="why-card-icon"><i class="bi bi-lightning-charge"></i></div>
+          <h3>Performance Focused</h3>
+          <p>Fast-loading websites improve user satisfaction, engagement, and overall website performance.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 sr sr-d4">
+        <div class="why-card">
+          <span class="why-card-num">04</span>
+          <div class="why-card-icon"><i class="bi bi-bullseye"></i></div>
+          <h3>User-Centered Approach</h3>
+          <p>I prioritize usability and intuitive design to create experiences that users enjoy and understand easily.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 sr sr-d5">
+        <div class="why-card">
+          <span class="why-card-num">05</span>
+          <div class="why-card-icon"><i class="bi bi-zoom-in"></i></div>
+          <h3>Attention to Detail</h3>
+          <p>From layout structure to final deployment, every aspect of a project is carefully crafted and reviewed.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 sr sr-d6">
+        <div class="why-card">
+          <span class="why-card-num">06</span>
+          <div class="why-card-icon"><i class="bi bi-chat-heart"></i></div>
+          <h3>Reliable Communication</h3>
+          <p>Clear communication, transparency, and timely updates help ensure a smooth and successful collaboration.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="bottom-statement sr">
+      <p>My goal is simple: build websites that <span class="highlight">look great</span>, <span class="highlight">perform exceptionally</span>, and help clients <span class="highlight">achieve their objectives</span>.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===== COMPARISON TABLE ===== -->
+<section style="background: var(--bg-raised); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);">
+  <div class="container">
+    <div class="text-center mb-5 sr">
+      <span class="eyebrow">The Difference</span>
+      <h2 class="section-title mt-2 mb-3">What Sets Me Apart</h2>
+      <p class="section-sub mx-auto">A side-by-side look at what you get when you work with me versus a typical approach.</p>
+    </div>
+
+    <div class="compare-panel sr sr-d2">
+      <div class="compare-header">
+        <div class="ch-bad"><i class="bi bi-x-circle me-2" style="opacity:.4"></i>Typical Approach</div>
+        <div class="ch-good"><i class="bi bi-check-circle me-2"></i>Working With Me</div>
+      </div>
+      <div class="compare-row">
+        <div class="cr-bad"><i class="bi bi-x cr-icon-bad"></i> Generic templates with no customization</div>
+        <div class="cr-good"><i class="bi bi-check-lg cr-icon-good"></i> Custom design tailored to your brand</div>
+      </div>
+      <div class="compare-row">
+        <div class="cr-bad"><i class="bi bi-x cr-icon-bad"></i> Slow, bloated websites</div>
+        <div class="cr-good"><i class="bi bi-check-lg cr-icon-good"></i> Optimized for speed and performance</div>
+      </div>
+      <div class="compare-row">
+        <div class="cr-bad"><i class="bi bi-x cr-icon-bad"></i> Breaks on mobile devices</div>
+        <div class="cr-good"><i class="bi bi-check-lg cr-icon-good"></i> Pixel-perfect on every screen size</div>
+      </div>
+      <div class="compare-row">
+        <div class="cr-bad"><i class="bi bi-x cr-icon-bad"></i> Poor communication & delays</div>
+        <div class="cr-good"><i class="bi bi-check-lg cr-icon-good"></i> Transparent updates throughout the process</div>
+      </div>
+      <div class="compare-row">
+        <div class="cr-bad"><i class="bi bi-x cr-icon-bad"></i> No post-launch support</div>
+        <div class="cr-good"><i class="bi bi-check-lg cr-icon-good"></i> Support after project delivery</div>
+      </div>
+      <div class="compare-row">
+        <div class="cr-bad"><i class="bi bi-x cr-icon-bad"></i> Outdated code and practices</div>
+        <div class="cr-good"><i class="bi bi-check-lg cr-icon-good"></i> Modern, clean, maintainable code</div>
+      </div>
+      <div class="compare-row">
+        <div class="cr-bad"><i class="bi bi-x cr-icon-bad"></i> No focus on user experience</div>
+        <div class="cr-good"><i class="bi bi-check-lg cr-icon-good"></i> User-centered design at every step</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===== PROCESS ===== -->
+<section>
+  <div class="container">
+    <div class="text-center mb-5 sr">
+      <span class="eyebrow">My Process</span>
+      <h2 class="section-title mt-2 mb-3">How I Ensure Quality</h2>
+      <p class="section-sub mx-auto">Every project follows a structured process to deliver consistent, high-quality results.</p>
+    </div>
+
+    <div class="process-wrap sr sr-d2 mb-4">
+      <span class="process-badge"><i class="bi bi-1-circle"></i> Discovery Call</span>
+      <span class="process-badge" style="color:var(--line); pointer-events:none;"><i class="bi bi-arrow-right"></i></span>
+      <span class="process-badge"><i class="bi bi-2-circle"></i> Research &amp; Planning</span>
+      <span class="process-badge" style="color:var(--line); pointer-events:none;"><i class="bi bi-arrow-right"></i></span>
+      <span class="process-badge"><i class="bi bi-3-circle"></i> Design &amp; Prototype</span>
+      <span class="process-badge" style="color:var(--line); pointer-events:none;"><i class="bi bi-arrow-right"></i></span>
+      <span class="process-badge"><i class="bi bi-4-circle"></i> Development</span>
+      <span class="process-badge" style="color:var(--line); pointer-events:none;"><i class="bi bi-arrow-right"></i></span>
+      <span class="process-badge"><i class="bi bi-5-circle"></i> Testing &amp; Review</span>
+      <span class="process-badge" style="color:var(--line); pointer-events:none;"><i class="bi bi-arrow-right"></i></span>
+      <span class="process-badge"><i class="bi bi-6-circle"></i> Launch &amp; Support</span>
+    </div>
+
+    <div class="row g-3 mt-4">
+      <div class="col-md-4 sr sr-d2">
+        <div class="why-card" style="padding: 1.5rem 1.6rem;">
+          <div class="d-flex align-items-center gap-3 mb-2">
+            <div class="why-card-icon" style="width:40px; height:40px; border-radius:8px; font-size:1.05rem; margin-bottom:0; background:rgba(79,209,197,.1); color:var(--cyan);"><i class="bi bi-clock-history"></i></div>
+            <h3 style="font-size:.95rem; margin-bottom:0;">On-Time Delivery</h3>
+          </div>
+          <p style="font-size:.82rem;">Realistic timelines with buffer built in. No surprise delays — I set expectations and meet them.</p>
+        </div>
+      </div>
+      <div class="col-md-4 sr sr-d3">
+        <div class="why-card" style="padding: 1.5rem 1.6rem;">
+          <div class="d-flex align-items-center gap-3 mb-2">
+            <div class="why-card-icon" style="width:40px; height:40px; border-radius:8px; font-size:1.05rem; margin-bottom:0; background:rgba(88,166,232,.1); color:var(--wp-blue);"><i class="bi bi-shield-check"></i></div>
+            <h3 style="font-size:.95rem; margin-bottom:0;">Clean &amp; Secure Code</h3>
+          </div>
+          <p style="font-size:.82rem;">Security best practices, sanitized inputs, and code that's easy for any developer to understand.</p>
+        </div>
+      </div>
+      <div class="col-md-4 sr sr-d4">
+        <div class="why-card" style="padding: 1.5rem 1.6rem;">
+          <div class="d-flex align-items-center gap-3 mb-2">
+            <div class="why-card-icon" style="width:40px; height:40px; border-radius:8px; font-size:1.05rem; margin-bottom:0; background:rgba(245,185,77,.1); color:var(--amber);"><i class="bi bi-arrow-repeat"></i></div>
+            <h3 style="font-size:.95rem; margin-bottom:0;">Post-Launch Support</h3>
+          </div>
+          <p style="font-size:.82rem;">I don't disappear after delivery. Bug fixes, minor updates, and guidance are part of the package.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===== CTA ===== -->
+<section id="contact">
+  <div class="container">
+    <div class="contact-panel sr">
+      <span class="eyebrow">Ready to Start?</span>
+      <h2 class="mt-2">Let's Build Something Great Together</h2>
+      <p>Convinced? I'd love to discuss your project and show you how I can bring your ideas to life with clean code and great design.</p>
+      <a href="contact.html" class="btn-primary-cta"><i class="bi bi-send me-2"></i>Get In Touch</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+    <div class="container d-flex flex-wrap justify-content-between align-items-center gap-3">
+        <div>
+            <div class="brand">&lt;Moyaz Mandal/&gt;</div>
+            <p>Building modern web experiences with WordPress, React, and creativity. </p>
+        </div>
+        <div class="d-flex align-items-center gap-1">
+            <a href="https://github.com/moyazmandal" class="social-link" aria-label="GitHub"><i class="bi bi-github"></i></a>
+            <a href="https://www.linkedin.com/in/moyazmandal" class="social-link" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+            <a href="https://www.facebook.com/moyazmandal" class="social-link" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+            <a href="https://www.instagram.com/moyaz_mandal" class="social-link" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+            <a href="https://x.com/MoyazMandal01" class="social-link" aria-label="X / Twitter"><i class="bi bi-twitter-x"></i></a>
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+<script>
+  // ===== Scroll Reveal =====
+  const srEls = document.querySelectorAll('.sr');
+  const srObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+
+        // Animate counters
+        e.target.querySelectorAll('[data-count]').forEach(n => animateCount(n));
+
+        // Animate mini bars
+        e.target.querySelectorAll('.exp-mini-fill').forEach((bar, i) => {
+          setTimeout(() => bar.classList.add('go'), i * 200 + 400);
+        });
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+  srEls.forEach(el => srObs.observe(el));
+
+  // ===== Counter Animation =====
+  function animateCount(el) {
+    if (el.dataset.done) return;
+    el.dataset.done = '1';
+    const target = parseInt(el.dataset.count);
+    const suffix = el.dataset.suffix || '';
+    const dur = 1400;
+    const start = performance.now();
+    function tick(now) {
+      const p = Math.min((now - start) / dur, 1);
+      const ease = 1 - Math.pow(1 - p, 3);
+      el.textContent = Math.round(ease * target) + suffix;
+      if (p < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+</script>
+</body>
+</html>
