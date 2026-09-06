@@ -596,7 +596,7 @@
 <!-- ===== NAVBAR ===== -->
 <nav class="navbar navbar-expand-lg fixed-top">
   <div class="container">
-    <a class="navbar-brand" href="index.html"><span class="bracket">&lt;</span>Moyaz<span class="bracket">/&gt;</span></a>
+    <a class="navbar-brand" href="index.html"><span class="bracket">&lt;</span>moyaz_mandal<span class="bracket">/&gt;</span></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation" style="border-color: var(--line);">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -641,7 +641,7 @@
     <div class="exp-hero-grid mb-5">
       <div class="exp-hero-card sr sr-d1">
         <div class="exp-hero-icon"><i class="bi bi-calendar3"></i></div>
-        <div class="exp-hero-num" data-count="2" data-suffix="+">0+</div>
+        <div class="exp-hero-num" data-count="2.5" data-suffix="+">0+</div>
         <div class="exp-hero-lab">Years Experience</div>
       </div>
       <div class="exp-hero-card sr sr-d2">
@@ -1010,41 +1010,76 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
 <script>
-  // ===== Scroll Reveal =====
-  const srEls = document.querySelectorAll('.sr');
-  const srObs = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('visible');
+// ===== Scroll Reveal =====
+const srEls = document.querySelectorAll(".sr");
 
-        // Animate counters
-        e.target.querySelectorAll('[data-count]').forEach(n => animateCount(n));
+const srObs = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
 
-        // Animate mini bars
-        e.target.querySelectorAll('.exp-mini-fill').forEach((bar, i) => {
-          setTimeout(() => bar.classList.add('go'), i * 200 + 400);
+      entry.target.classList.add("visible");
+
+      // Animate Counters
+      entry.target
+        .querySelectorAll("[data-count]")
+        .forEach((counter) => animateCount(counter));
+
+      // Animate Mini Bars
+      entry.target
+        .querySelectorAll(".exp-mini-fill")
+        .forEach((bar, index) => {
+          setTimeout(() => {
+            bar.classList.add("go");
+          }, index * 200 + 400);
         });
-      }
     });
-  }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
-  srEls.forEach(el => srObs.observe(el));
-
-  // ===== Counter Animation =====
-  function animateCount(el) {
-    if (el.dataset.done) return;
-    el.dataset.done = '1';
-    const target = parseInt(el.dataset.count);
-    const suffix = el.dataset.suffix || '';
-    const dur = 1400;
-    const start = performance.now();
-    function tick(now) {
-      const p = Math.min((now - start) / dur, 1);
-      const ease = 1 - Math.pow(1 - p, 3);
-      el.textContent = Math.round(ease * target) + suffix;
-      if (p < 1) requestAnimationFrame(tick);
-    }
-    requestAnimationFrame(tick);
+  },
+  {
+    threshold: 0.1,
+    rootMargin: "0px 0px -30px 0px",
   }
+);
+
+srEls.forEach((el) => srObs.observe(el));
+
+
+// ===== Counter Animation =====
+function animateCount(el) {
+  if (el.dataset.done) return;
+
+  el.dataset.done = "1";
+
+  const target = parseFloat(el.dataset.count);
+  const suffix = el.dataset.suffix || "";
+
+  const duration = 1400;
+  const startTime = performance.now();
+
+  function tick(now) {
+    const progress = Math.min((now - startTime) / duration, 1);
+    const eased = 1 - Math.pow(1 - progress, 3);
+
+    const currentValue = eased * target;
+
+    if (target % 1 !== 0) {
+      // Decimal numbers (e.g. 2.5)
+      el.textContent = currentValue.toFixed(1) + suffix;
+    } else {
+      // Integer numbers
+      el.textContent = Math.round(currentValue) + suffix;
+    }
+
+    if (progress < 1) {
+      requestAnimationFrame(tick);
+    } else {
+      el.textContent =
+        (target % 1 !== 0 ? target.toFixed(1) : target) + suffix;
+    }
+  }
+
+  requestAnimationFrame(tick);
+}
 </script>
 </body>
 </html>

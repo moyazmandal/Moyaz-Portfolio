@@ -727,7 +727,7 @@
 <!-- ===== NAVBAR ===== -->
 <nav class="navbar navbar-expand-lg fixed-top">
   <div class="container">
-    <a class="navbar-brand" href="index.html"><span class="bracket">&lt;</span>Moyaz<span class="bracket">/&gt;</span></a>
+    <a class="navbar-brand" href="index.html"><span class="bracket">&lt;</span>moyaz_mandal<span class="bracket">/&gt;</span></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation" style="border-color: var(--line);">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -1289,45 +1289,72 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
 <script>
   // ===== Scroll Reveal =====
-  const srEls = document.querySelectorAll('.sr');
-  const srObs = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('visible');
+// ===== Scroll Reveal =====
+const srEls = document.querySelectorAll('.sr');
 
-        // Animate progress bars
-        e.target.querySelectorAll('.skill-progress-fill').forEach((bar, i) => {
-          setTimeout(() => bar.classList.add('go'), i * 200 + 300);
-        });
+const srObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
 
-        // Animate breakdown bars
-        e.target.querySelectorAll('.breakdown-bar-fill').forEach((bar, i) => {
-          setTimeout(() => bar.classList.add('go'), i * 100 + 200);
-        });
+      // Animate progress bars
+      e.target.querySelectorAll('.skill-progress-fill').forEach((bar, i) => {
+        setTimeout(() => bar.classList.add('go'), i * 200 + 300);
+      });
 
-        // Animate counters
-        e.target.querySelectorAll('.num[data-count]').forEach(n => animateCount(n));
-      }
-    });
-  }, { threshold: 0.12, rootMargin: '0px 0px -30px 0px' });
-  srEls.forEach(el => srObs.observe(el));
+      // Animate breakdown bars
+      e.target.querySelectorAll('.breakdown-bar-fill').forEach((bar, i) => {
+        setTimeout(() => bar.classList.add('go'), i * 100 + 200);
+      });
 
-  // ===== Counter =====
-  function animateCount(el) {
-    if (el.dataset.done) return;
-    el.dataset.done = '1';
-    const target = parseInt(el.dataset.count);
-    const suffix = el.dataset.suffix || '';
-    const dur = 1400;
-    const start = performance.now();
-    function tick(now) {
-      const p = Math.min((now - start) / dur, 1);
-      const ease = 1 - Math.pow(1 - p, 3);
-      el.textContent = Math.round(ease * target) + suffix;
-      if (p < 1) requestAnimationFrame(tick);
+      // Animate counters
+      e.target.querySelectorAll('.num[data-count]').forEach(n => animateCount(n));
     }
-    requestAnimationFrame(tick);
+  });
+}, {
+  threshold: 0.12,
+  rootMargin: '0px 0px -30px 0px'
+});
+
+srEls.forEach(el => srObs.observe(el));
+
+
+// ===== Counter =====
+function animateCount(el) {
+  if (el.dataset.done) return;
+
+  el.dataset.done = '1';
+
+  const target = parseFloat(el.dataset.count);
+  const suffix = el.dataset.suffix || '';
+  const dur = 1400;
+  const start = performance.now();
+
+  function tick(now) {
+    const p = Math.min((now - start) / dur, 1);
+    const ease = 1 - Math.pow(1 - p, 3);
+
+    const value = ease * target;
+
+    if (target % 1 !== 0) {
+      el.textContent = value.toFixed(1) + suffix;
+    } else {
+      el.textContent = Math.round(value) + suffix;
+    }
+
+    if (p < 1) {
+      requestAnimationFrame(tick);
+    } else {
+      if (target % 1 !== 0) {
+        el.textContent = target.toFixed(1) + suffix;
+      } else {
+        el.textContent = target + suffix;
+      }
+    }
   }
+
+  requestAnimationFrame(tick);
+}
 </script>
 </body>
 </html>
