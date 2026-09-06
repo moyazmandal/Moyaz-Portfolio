@@ -90,7 +90,7 @@ https://moyazmandal.vercel.app/
 https://linkedin.com/in/moyazmandal
 
 📧 Email:
-[your-email@example.com](mailto:your-email@example.com)
+[your-email@example.com](mailto:moyazmandal@gmail.com)
 
 ## ⭐ Support
 
