@@ -1111,44 +1111,66 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
 <script>
-  // ===== Scroll Reveal =====
-  const srEls = document.querySelectorAll('.sr');
-  const srObs = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('visible');
+// ===== Scroll Reveal =====
+const srEls = document.querySelectorAll('.sr');
 
-        // Animate progress bars inside
-        const bars = e.target.querySelectorAll('.skill-progress-fill');
-        bars.forEach((bar, i) => {
-          setTimeout(() => bar.classList.add('animated'), i * 180 + 250);
-        });
+const srObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
 
-        // Animate counters inside stat cards
-        const nums = e.target.querySelectorAll('.num[data-count]');
-        nums.forEach(n => animateCount(n));
-      }
-    });
-  }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
-  srEls.forEach(el => srObs.observe(el));
+      // Animate progress bars inside
+      const bars = e.target.querySelectorAll('.skill-progress-fill');
+      bars.forEach((bar, i) => {
+        setTimeout(() => bar.classList.add('animated'), i * 180 + 250);
+      });
 
-  // ===== Counter Animation =====
-  function animateCount(el) {
-    if (el.dataset.done) return;
-    el.dataset.done = '1';
-    const target = parseInt(el.dataset.count);
-    const suffix = el.dataset.suffix || '';
-    const dur = 1400;
-    const start = performance.now();
-
-    function tick(now) {
-      const p = Math.min((now - start) / dur, 1);
-      const ease = 1 - Math.pow(1 - p, 3);
-      el.textContent = Math.round(ease * target) + suffix;
-      if (p < 1) requestAnimationFrame(tick);
+      // Animate counters inside stat cards
+      const nums = e.target.querySelectorAll('.num[data-count]');
+      nums.forEach(n => animateCount(n));
     }
-    requestAnimationFrame(tick);
+  });
+}, {
+  threshold: 0.15,
+  rootMargin: '0px 0px -40px 0px'
+});
+
+srEls.forEach(el => srObs.observe(el));
+
+
+// ===== Counter Animation =====
+function animateCount(el) {
+  if (el.dataset.done) return;
+
+  el.dataset.done = '1';
+
+  const target = parseFloat(el.dataset.count);
+  const suffix = el.dataset.suffix || '';
+  const dur = 1400;
+  const start = performance.now();
+
+  function tick(now) {
+    const p = Math.min((now - start) / dur, 1);
+    const ease = 1 - Math.pow(1 - p, 3);
+
+    const value = ease * target;
+
+    if (target % 1 !== 0) {
+      el.textContent = value.toFixed(1) + suffix;
+    } else {
+      el.textContent = Math.round(value) + suffix;
+    }
+
+    if (p < 1) {
+      requestAnimationFrame(tick);
+    } else {
+      el.textContent =
+        (target % 1 !== 0 ? target.toFixed(1) : target) + suffix;
+    }
   }
+
+  requestAnimationFrame(tick);
+}
 </script>
 </body>
 </html>
